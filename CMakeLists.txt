@@ -6,8 +6,8 @@ project(argparse VERSION ${ARGPARSE_VERSION} LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-option(ARGPARSE_TEST_ENABLE "Build unit tests" ON)
-option(ARGPARSE_BUILD_EXAMPLE "Build example" ON)
+option(ARGPARSE_TEST_ENABLE "Build unit tests" OFF)
+option(ARGPARSE_BUILD_EXAMPLE "Build example" OFF)
 if(WIN32)
     if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4 /Wall /WX -Wno-c++98-compat -Wno-c++98-compat-pedantic \
@@ -50,7 +50,7 @@ endif()
 enable_testing()
 
 add_library(argparse INTERFACE)
-target_include_directories(argparse INTERFACE .)
+target_include_directories(argparse  SYSTEM INTERFACE .)
 
 if(ARGPARSE_BUILD_EXAMPLE)
     add_executable(example example.cpp)
