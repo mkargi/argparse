@@ -89,7 +89,7 @@ static inline int _find_equal(const std::string &s) {
 static inline size_t _find_name_end(const std::string &s) {
   size_t i;
   for (i = 0; i < s.length(); ++i) {
-    if (std::ispunct(static_cast<int>(s[i]))) {
+    if (std::ispunct(static_cast<int>(s[i])) && s[i]!='_' ) {
       break;
     }
   }
@@ -548,7 +548,7 @@ class ArgumentParser {
   std::map<std::string, int> _name_map{};
 };
 
-std::ostream &operator<<(std::ostream &os, const ArgumentParser::Result &r) {
+inline std::ostream &operator<<(std::ostream &os, const ArgumentParser::Result &r) {
   os << r.what();
   return os;
 }
