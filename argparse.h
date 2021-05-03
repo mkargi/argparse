@@ -290,7 +290,7 @@ class ArgumentParser {
       for (size_t n = 1; n < a._names.size(); ++n) {
         name.append(", " + a._names[n]);
       }
-      std::cout << "    " << std::setw(23) << std::left << name << std::setw(23)
+      std::cout << "    " << std::setw(30) << std::left << name << std::setw(23)
                 << a._desc;
       if (a._required) {
         std::cout << " (Required)";
